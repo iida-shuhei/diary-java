@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.DiaryMapper">
+	<resultMap id="diaryResultMap" type="com.example.dto.Diary">
+		<id property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="text" column="text" />
+	</resultMap>
+
+	<insert id="create">
+		INSERT INTO diaries
+			(title, text)
+		VALUES
+			(#{title}, #{text})
+	</insert>
+	
+	<update id="update">
+		UPDATE diaries SET title =#{title}, text =#{text} WHERE id =#{id}
+	</update>
+	
+	<select id="findAll" resultMap="diaryResultMap">
+		SELECT * FROM diaries
+	</select>
+
+	<select id="findById" resultMap="diaryResultMap" parameterType="int">
+		SELECT * FROM diaries WHERE id =#{id}
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM diaries WHERE id =#{id}
+	</delete>
+</mapper>

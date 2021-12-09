@@ -1,0 +1,11 @@
+drop table if exists diaries cascade;
+
+create table diaries (
+	id serial primary key,
+	title varchar(50) not null,
+ 	text text not null
+);
+
+INSERT INTO diaries(title, text) VALUES('タイトル1','テストです1');
+INSERT INTO diaries(title, text) VALUES('タイトル2','テストです2');
+INSERT INTO diaries(title, text) VALUES('タイトル3','テストです3');

@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/diary
+    username: postgres
+    password: postgres
+
+# ローカル環境での起動ポート番号の設定
+server:
+  port: 8080
+  
+environments:
+#デプロイ環境のOrigin  
+ originUrl: ${ORIGIN_URL:http://localhost:3000}
+
